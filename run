@@ -1,6 +1,6 @@
 # align pianorolls(scores), save alignmemt result to data/alignment_meta_data.npz
-pythonw align.py
+python align.py
 
 # display align result
-pythonw vis/plot_alignment_path.py -f data/alignment_meta_data.npz
+python vis/plot_alignment_path.py -f data/alignment_meta_data.npz
 

@@ -5,7 +5,7 @@ from __future__ import print_function
 
 import copy
 import numpy as np
-import librosa
+#import librosa
 
 import util.midi_io as midi_io
 

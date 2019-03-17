@@ -20,15 +20,13 @@ reg_score = midifile2pianoroll(reg_midi, fps)[0]
 print('original ref shape:{}'.format(ref_score.shape))
 print('original reg shape:{}'.format(reg_score.shape))
 
-aligner = DPSequenceAligner(min_blank_frame=1, dist_type='e', valid_range=1, jump_penalty=1, half_search_window=200, update_interval=10)
 
-# feed ref score
-aligner.set_ref_scores(ref_score)
 s = time.time()
-interval = 32
-for i in range(0, reg_score.shape[0], interval):
-    frames = reg_score[i:i+interval]
-    aligner.add_reg_scores(frames)
+
+aligner = DPSequenceAligner(min_blank_frame=1, dist_type='e', valid_range=1, jump_penalty=1, half_search_window=200, update_interval=10)
+aligner.set_ref_scores(ref_score)
+aligner.add_reg_scores(reg_score)
+
 print("alignment cost time: {}s".format(time.time() - s))
 print('squeezed ref shape:{}'.format(aligner.ref_pool.squeezed_scores.shape))
 print('squeezed reg shape:{}'.format(aligner.reg_pool.squeezed_scores.shape))

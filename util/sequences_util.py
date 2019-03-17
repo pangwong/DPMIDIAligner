@@ -9,8 +9,8 @@ import librosa
 
 import util.midi_io as midi_io
 
-MIN_MIDI_PITCH = librosa.note_to_midi('A0')
-MAX_MIDI_PITCH = librosa.note_to_midi('C8')
+MIN_MIDI_PITCH = 21  #librosa.note_to_midi('A0')
+MAX_MIDI_PITCH = 108 #librosa.note_to_midi('C8')
 
 
     
